@@ -11,6 +11,7 @@ public class Article {
 	private String imgLink;
 	private String pubDate;
 	private URL url;
+	private String author;
 	private String encodedContent;
 
 	public long getArticleId() {
@@ -28,13 +29,21 @@ public class Article {
 	public void setFeedId(long feedId) {
 		this.feedId = feedId;
 	}
-
+	
 	public String getTitle() {
 		return title;
 	}
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public URL getUrl() {

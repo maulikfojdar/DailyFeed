@@ -154,7 +154,7 @@ public class MainActivity extends ListActivity {
 			JSONObject jsonResponse = null;
 			
 	        try {
-	        	URL blogFeedUrl = new URL("https://api.mashable.com/v1/posts");
+	        	URL blogFeedUrl = new URL("http://blog.teamtreehouse.com/api/get_recent_summary/?count=20");
 	        	HttpURLConnection connection = (HttpURLConnection) blogFeedUrl.openConnection();
 	        	connection.connect();
 	        	

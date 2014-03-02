@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 public class HomeActivity extends Activity implements OnItemClickListener{
 
-	String[] stringArray = new String[] {"TechCrunch","The Verge","Samashing Magazine","Mashable","ReadWrite"};
-	
+	String[] stringArray = new String[] {"TechCrunch","The Verge","Times of India","Lifehacker","CNN News","Smashing Magazine","Mashable","ReadWrite","Treehouse"};
+	String feedURL;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,8 +45,43 @@ public class HomeActivity extends Activity implements OnItemClickListener{
 	public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
 
 		String feedName = ((TextView) view).getText().toString();
-		Intent intent = new Intent(getApplicationContext(), RssActivity.class);
-		intent.putExtra("feedName", feedName);
+		Intent intent;
+		if(feedName == "TechCrunch"){
+			feedURL = "http://techcrunch.com/feed/";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else if(feedName == "The Verge"){
+			feedURL = "http://www.theverge.com/rss/index.xml";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else if(feedName == "Times of India"){
+			feedURL = "http://timesofindia.indiatimes.com/rssfeedsdefault.cms";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else if(feedName == "Lifehacker"){
+			feedURL = "http://feeds.gawker.com/lifehacker/full";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else if(feedName == "CNN News"){
+			feedURL = "http://rss.cnn.com/rss/cnn_topstories.rss";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else if(feedName == "Smashing Magazine"){
+			feedURL = "http://rss1.smashingmagazine.com/feed";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else if(feedName == "Mashable"){
+			feedURL = "http://feeds.mashable.com/Mashable";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else if(feedName == "ReadWrite"){
+			feedURL = "http://readwrite.com/main/feed/articles.xml";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else {
+			intent = new Intent(getApplicationContext(), MainActivity.class);
+		}
+		intent.putExtra("feedURL", feedURL);
 		startActivity(intent);
 		
 	}

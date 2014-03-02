@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical" >
+   
+	
+	
+    <TextView
+    	android:id="@+id/feed_text"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:paddingBottom="20dp"
+    	android:paddingLeft="5dp"
+    	android:paddingRight="5dp"
+    	android:paddingTop="5dp"
+    	android:textAppearance="?android:attr/textAppearanceLarge">
+    	</TextView>
+    	
+    <TextView
+    	android:id="@+id/feed_subtext"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:paddingBottom="20dp"
+    	android:paddingLeft="5dp"
+    	android:paddingRight="5dp"
+    	android:paddingTop="5dp">
+    	</TextView>
+    
+</LinearLayout>
