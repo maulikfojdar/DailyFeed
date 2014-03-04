@@ -17,23 +17,23 @@ public class RSSBuilder {
 		String feed = feedURL;
 		
 		FeedHandler handler = new FeedHandler();
-		ArrayList<Article> articles = handler.getArticles(feed);
-		return feedData(articles);
+		ArrayList<Post> posts = handler.getPosts(feed);
+		return feedData(posts);
 		}
 
-	private static ArrayList<JSONObject> feedData(ArrayList<Article> articles) {
+	private static ArrayList<JSONObject> feedData(ArrayList<Post> posts) {
 		
 		ArrayList<JSONObject> items = new ArrayList<JSONObject>();
-		for(Article article : articles)
+		for(Post post : posts)
 		{
-			JSONObject currentArticle = new JSONObject();
+			JSONObject currentPost = new JSONObject();
 			
 			try {
-				buildArticle(article, currentArticle);
+				buildPost(post, currentPost);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			items.add(currentArticle);
+			items.add(currentPost);
 			
 		}
 		
@@ -41,19 +41,17 @@ public class RSSBuilder {
 		
 	}
 
-	private static void buildArticle(Article article, JSONObject currentArticle) throws JSONException {
-		String title = article.getTitle();
-		String date = article.getPubDate();
-		String author = article.getAuthor();
-		URL url = article.getUrl();
+	private static void buildPost(Post post, JSONObject currentArticle) throws JSONException {
+		String title = post.getTitle();
+		String date = post.getPubDate();
+		URL url = post.getUrl();
 		
 		
 	StringBuffer s = new StringBuffer();
-	s.append("<B>").append(title).append("</B>");
+	s.append(title);
 	currentArticle.put("text",Html.fromHtml(s.toString()));
 	StringBuffer s1 = new StringBuffer();
-	s1.append("<SMALL>").append("<I>").append(author).append(" - ");
-	s1.append(date).append("</I>").append("</SMALL>");		
+	s1.append(date);		
 	
 	
 	currentArticle.put("subtext",Html.fromHtml(s1.toString()));

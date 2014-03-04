@@ -19,12 +19,12 @@ import android.util.Log;
 
 public class FeedHandler extends DefaultHandler{
 	
-	private Article currentArticle  = new Article();
-	private ArrayList<Article> articleList = new ArrayList<Article>();
+	private Post currentPost  = new Post();
+	private ArrayList<Post> postList = new ArrayList<Post>();
 	
-	private int articlesTillNow  = 0;
+	private int postsTillNow  = 0;
 	
-	private static final int ARTICLE_LIMIT = 20;
+	private static final int POST_LIMIT = 20;
 	private static final String TAG = "FeedHandler";
 	
 	StringBuffer content = new StringBuffer();
@@ -47,40 +47,24 @@ public class FeedHandler extends DefaultHandler{
 		
 		if (localName.equalsIgnoreCase("title"))
 		{
-			Log.d(TAG, "Article title: " + content.toString());
-			currentArticle.setTitle(content.toString());
+			Log.d(TAG, "Post title: " + content.toString());
+			currentPost.setTitle(content.toString());
 
-		}
-		else if (localName.equalsIgnoreCase("author"))
-		{
-			Log.d(TAG, "Article Author: " + content.toString());
-			currentArticle.setAuthor(content.toString());
-
-		}
-		else if ((localName.equalsIgnoreCase("description")) || (localName.equalsIgnoreCase("content")))
-		{
-			Log.d(TAG, "Article Decription: " + content.toString());
-			currentArticle.setDescription(content.toString());
 		}
 		else if ((localName.equalsIgnoreCase("pubDate")) || (localName.equalsIgnoreCase("published")))
 		{
-			Log.d(TAG, "Article published date: " + content.toString());
-			currentArticle.setPubDate(content.toString());
-		}
-		else if (localName.equalsIgnoreCase("encoded"))
-		{
-			Log.d(TAG, "Article content: " + content.toString());
-			currentArticle.setEncodedContent(content.toString());
+			Log.d(TAG, "Post published date: " + content.toString());
+			currentPost.setPubDate(content.toString());
 		}
 		else if ((localName.equalsIgnoreCase("item")) || (localName.equalsIgnoreCase("entry")))
 		{
-			articleList.add(currentArticle);
+			postList.add(currentPost);
 
-			currentArticle = new Article();
+			currentPost = new Post();
 
-			// Lets check if we've hit our limit on number of articles
-			articlesTillNow++;
-			if (articlesTillNow >= ARTICLE_LIMIT)
+			// Lets check if we've hit our limit on number of posts
+			postsTillNow++;
+			if (postsTillNow >= POST_LIMIT)
 			{
 				throw new SAXException();
 			}
@@ -88,21 +72,12 @@ public class FeedHandler extends DefaultHandler{
 		else if ((localName.equalsIgnoreCase("link")) || (localName.equalsIgnoreCase("id")))
 		{
 			try {
-				Log.d(TAG, "Article link url: " + content.toString());
-				currentArticle.setUrl(new URL(content.toString()));
+				Log.d(TAG, "Post link url: " + content.toString());
+				currentPost.setUrl(new URL(content.toString()));
 			} catch (MalformedURLException e) {
 				Log.e("RSA Error", e.getMessage());
 			}
 
-		}
-
-
-
-
-		// Check if looking for article, and if article is complete
-		if (localName.equalsIgnoreCase("item")) {
-
-			
 		}
 	}
 
@@ -114,7 +89,7 @@ public class FeedHandler extends DefaultHandler{
 		content.append(new String(ch, start, length));
 	}
 	
-	public ArrayList<Article> getArticles(String feedURL) {
+	public ArrayList<Post> getPosts(String feedURL) {
 		URL url;
 		
 		try {
@@ -135,7 +110,7 @@ public class FeedHandler extends DefaultHandler{
 			Log.e("Exception:",e.toString());
 		}
 		
-		return articleList;
+		return postList;
 		
 	}
 

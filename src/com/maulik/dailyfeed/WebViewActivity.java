@@ -22,6 +22,7 @@ public class WebViewActivity extends Activity {
 		mUrl = blogUri.toString();
 		
 		WebView webView = (WebView) findViewById(R.id.webView1);
+		//webView.getSettings().setJavaScriptEnabled(true);
 		webView.loadUrl(mUrl);
 	}
 

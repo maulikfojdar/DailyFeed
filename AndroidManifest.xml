@@ -14,9 +14,8 @@
 		android:label="@string/app_name"
 		android:theme="@style/AppTheme" >
 		<activity
-			android:name="com.maulik.dailyfeed.MainActivity"
-			android:label="@string/title_activity_main" >
-			
+			android:name="com.maulik.dailyfeed.JsonActivity"
+			android:label="@string/title_activity_json" >
 		</activity>
 		<activity
 			android:name="com.maulik.dailyfeed.WebViewActivity"
@@ -25,14 +24,19 @@
 		<activity
 			android:name="com.maulik.dailyfeed.HomeActivity"
 			android:label="@string/app_name" >
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
+			
 		</activity>
 		<activity
 			android:name="com.maulik.dailyfeed.RssActivity"
 			android:label="@string/title_activity_rss" >
+		</activity>
+		<activity
+			android:name="com.maulik.dailyfeed.CategoryActivity"
+			android:label="@string/title_activity_category" >
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
 		</activity>
 	</application>
 </manifest>

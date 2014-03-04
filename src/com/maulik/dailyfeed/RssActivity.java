@@ -1,7 +1,5 @@
 package com.maulik.dailyfeed;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 
 import org.json.JSONException;
@@ -120,9 +118,9 @@ public class RssActivity extends Activity implements OnItemClickListener {
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-		JSONObject jsonPosts = feeds.get(position);
+		JSONObject posts = feeds.get(position);
 		try {
-			String blogUrl = jsonPosts.get("url").toString();
+			String blogUrl = posts.get("url").toString();
 			
 			Intent intent = new Intent(this, WebViewActivity.class);
     		intent.setData(Uri.parse(blogUrl));

@@ -22,6 +22,10 @@ public class HomeActivity extends Activity implements OnItemClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		
+		Intent intent = getIntent();
+		stringArray = intent.getStringArrayExtra("categoryBlogs");
+		
+		
 		final ArrayList<String> list = new ArrayList<String>();
 	    for (int i = 0; i < stringArray.length; ++i) {
 	      list.add(stringArray[i]);
@@ -46,40 +50,56 @@ public class HomeActivity extends Activity implements OnItemClickListener{
 
 		String feedName = ((TextView) view).getText().toString();
 		Intent intent;
-		if(feedName == "TechCrunch"){
+		if(feedName.equalsIgnoreCase("techcrunch")){
 			feedURL = "http://techcrunch.com/feed/";
 			intent = new Intent(getApplicationContext(), RssActivity.class);
 		}
-		else if(feedName == "The Verge"){
+		else if(feedName.equalsIgnoreCase("The Verge")){
 			feedURL = "http://www.theverge.com/rss/index.xml";
 			intent = new Intent(getApplicationContext(), RssActivity.class);
 		}
-		else if(feedName == "Times of India"){
+		else if(feedName.equalsIgnoreCase("Cool Hunting")){
+			feedURL = "http://www.coolhunting.com/index.xml";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else if(feedName.equalsIgnoreCase("Times of India")){
 			feedURL = "http://timesofindia.indiatimes.com/rssfeedsdefault.cms";
 			intent = new Intent(getApplicationContext(), RssActivity.class);
 		}
-		else if(feedName == "Lifehacker"){
+		else if(feedName.equalsIgnoreCase("Lifehacker")){
 			feedURL = "http://feeds.gawker.com/lifehacker/full";
 			intent = new Intent(getApplicationContext(), RssActivity.class);
 		}
-		else if(feedName == "CNN News"){
+		else if(feedName.equalsIgnoreCase("CNN News")){
 			feedURL = "http://rss.cnn.com/rss/cnn_topstories.rss";
 			intent = new Intent(getApplicationContext(), RssActivity.class);
 		}
-		else if(feedName == "Smashing Magazine"){
+		else if(feedName.equalsIgnoreCase("Smashing Magazine")){
 			feedURL = "http://rss1.smashingmagazine.com/feed";
 			intent = new Intent(getApplicationContext(), RssActivity.class);
 		}
-		else if(feedName == "Mashable"){
+		else if(feedName.equalsIgnoreCase("Mashable")){
 			feedURL = "http://feeds.mashable.com/Mashable";
 			intent = new Intent(getApplicationContext(), RssActivity.class);
 		}
-		else if(feedName == "ReadWrite"){
+		else if(feedName.equalsIgnoreCase("ReadWrite")){
 			feedURL = "http://readwrite.com/main/feed/articles.xml";
 			intent = new Intent(getApplicationContext(), RssActivity.class);
 		}
+		else if(feedName.equalsIgnoreCase("Bussiness Insider")){
+			feedURL = "http://feeds2.feedburner.com/businessinsider";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else if(feedName.equalsIgnoreCase("ESPN")){
+			feedURL = "http://sports-ak.espn.go.com/espn/rss/news";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
+		else if(feedName.equalsIgnoreCase("CSS-Tricks")){
+			feedURL = "http://feeds.feedburner.com/CssTricks";
+			intent = new Intent(getApplicationContext(), RssActivity.class);
+		}
 		else {
-			intent = new Intent(getApplicationContext(), MainActivity.class);
+			intent = new Intent(getApplicationContext(), JsonActivity.class);
 		}
 		intent.putExtra("feedURL", feedURL);
 		startActivity(intent);

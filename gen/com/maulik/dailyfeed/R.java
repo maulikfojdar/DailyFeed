@@ -29,28 +29,32 @@ public final class R {
         public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f090007;
-        public static final int action_share=0x7f090006;
-        public static final int articleList=0x7f090002;
-        public static final int feedList=0x7f090000;
-        public static final int feed_subtext=0x7f090005;
-        public static final int feed_text=0x7f090004;
-        public static final int progressBar1=0x7f090001;
-        public static final int webView1=0x7f090003;
+        public static final int action_settings=0x7f090009;
+        public static final int action_share=0x7f090008;
+        public static final int articleList=0x7f090004;
+        public static final int categoryList=0x7f090000;
+        public static final int feedList=0x7f090002;
+        public static final int feed_subtext=0x7f090007;
+        public static final int feed_text=0x7f090006;
+        public static final int progressBar1=0x7f090003;
+        public static final int textView1=0x7f090001;
+        public static final int webView1=0x7f090005;
     }
     public static final class layout {
-        public static final int activity_home=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_rss=0x7f030002;
-        public static final int activity_web_view=0x7f030003;
-        public static final int feed_layout=0x7f030004;
+        public static final int activity_category=0x7f030000;
+        public static final int activity_home=0x7f030001;
+        public static final int activity_json=0x7f030002;
+        public static final int activity_rss=0x7f030003;
+        public static final int activity_web_view=0x7f030004;
+        public static final int feed_layout=0x7f030005;
     }
     public static final class menu {
         public static final int activity_blog_web_view=0x7f080000;
-        public static final int main=0x7f080001;
-        public static final int rss=0x7f080002;
-        public static final int treehouse=0x7f080003;
-        public static final int web_view=0x7f080004;
+        public static final int category=0x7f080001;
+        public static final int main=0x7f080002;
+        public static final int rss=0x7f080003;
+        public static final int treehouse=0x7f080004;
+        public static final int web_view=0x7f080005;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -64,7 +68,8 @@ public final class R {
         public static final int share_chooser_title=0x7f05000b;
         public static final int title_activity_Home=0x7f05000c;
         public static final int title_activity_blog_web_view=0x7f050009;
-        public static final int title_activity_main=0x7f050004;
+        public static final int title_activity_category=0x7f05000e;
+        public static final int title_activity_json=0x7f050004;
         public static final int title_activity_rss=0x7f05000d;
         public static final int title_activity_web_view=0x7f050003;
     }

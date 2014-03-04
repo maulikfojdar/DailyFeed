@@ -32,10 +32,10 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends ListActivity {
+public class JsonActivity extends ListActivity {
 	
 	public static final int NUMBER_OF_POSTS = 20;
-	public static final String TAG = MainActivity.class.getSimpleName();
+	public static final String TAG = JsonActivity.class.getSimpleName();
 	protected JSONObject mBlogData;
 	protected ProgressBar mProgressBar;
 	
@@ -45,7 +45,7 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_json);
         
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar1);
         
